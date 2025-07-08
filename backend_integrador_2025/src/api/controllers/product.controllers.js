@@ -27,9 +27,8 @@ const ProductController = {
 
   async create(req, res) {
     try {
-      const { nombre, precio, categoria } = req.body;
-      const imagen = req.file ? `/images/${req.file.filename}` : null;
-      await ProductModel.create({ nombre, precio, imagen, categoria });
+      const { imagen, nombre, precio, categoria } = req.body;
+      await ProductModel.create({ imagen, nombre, precio, categoria });
       res.json({ mensaje: 'Producto creado' });
     } catch (error) {
       console.error(error);
@@ -39,9 +38,8 @@ const ProductController = {
 
   async update(req, res) {
     try {
-      const { nombre, precio, categoria } = req.body;
-      const imagen = req.file ? `/images/${req.file.filename}` : null;
-      await ProductModel.update(req.params.id, { nombre, precio, imagen, categoria });
+      const { imagen, nombre, precio, categoria } = req.body;
+      await ProductModel.update(req.params.id, { imagen, nombre, precio, imagen, categoria });
       res.json({ mensaje: 'Producto actualizado' });
     } catch (error) {
       console.error(error);

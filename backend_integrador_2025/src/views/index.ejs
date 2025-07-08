@@ -1,0 +1,18 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/nav.ejs") %>
+
+<body>
+  <h1><%= title %></h1>
+  <ul>
+    <% productos.forEach(p => { %>
+      <li>
+        Id: <%= p.id %> <br>
+        <strong><%= p.nombre %></strong><br>
+        Precio: $<%= p.precio %><br>
+        Categoría: <%= p.categoria %><br>
+        Imagen: <%= p.imagen ? p.imagen : 'No disponible' %>
+      </li>
+    <% }) %>
+  </ul>
+  
+<%- include("partials/footer.ejs") %>

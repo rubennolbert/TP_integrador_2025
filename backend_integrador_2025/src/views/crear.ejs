@@ -1,0 +1,28 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/nav.ejs") %>
+
+  <h2>Crear producto</h2>
+
+    <form action="/api/products" method="POST" autocomplete="off">
+
+      
+      <label for="imagenProd">Imagen</label>
+      <input type="text" name="imagen" id="imagenProd" required>
+      
+      <label for="nombreProd">Nombre</label>
+      <input type="text" name="nombre" id="nombreProd" required>
+      
+      <label for="precioProd">Precio</label>
+      <input type="number" name="precio" id="precioProd" required>
+      
+      <label for="categoriaProd">Categoria</label>
+      <select name="categoria" id="categoriaProd" required>
+          <option value="libro">Libro</option>
+          <option value="comic">Comic</option>
+      </select>
+        
+      <input type="submit" value="Crear producto">
+    </form>
+
+
+<%- include("partials/footer.ejs") %>
