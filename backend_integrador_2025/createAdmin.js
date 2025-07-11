@@ -4,8 +4,8 @@ import db from './src/api/database/db.js';
 
 dotenv.config();
 
-const email = 'admin@libreria.com';
-const password = 'admin123';
+const email = 'root@root.com';
+const password = '1234';
 
 const createAdmin = async () => {
   try {
@@ -20,3 +20,4 @@ const createAdmin = async () => {
 };
 
 createAdmin();
+

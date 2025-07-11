@@ -4,7 +4,11 @@ import saleRoutes from './sale.routes.js';
 import adminRoutes from './admin.routes.js';
 
 const router = express.Router();
-
+//
+router.get('/', (req, res) => {
+  res.send('¡Servidor funcionando en /!');
+}); 
+//
 router.use('/api/products', productRoutes);
 router.use('/api/sales', saleRoutes);
 router.use('/admin', adminRoutes);

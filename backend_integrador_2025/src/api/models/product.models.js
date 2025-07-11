@@ -11,17 +11,17 @@ const ProductModel = {
     return rows[0];
   },
 
-  async create({ nombre, precio, imagen, categoria }) {
+  async create({imagen, nombre, precio, categoria }) {
     await db.query(
       'INSERT INTO products (nombre, precio, imagen, categoria) VALUES (?, ?, ?, ?)',
       [nombre, precio, imagen, categoria]
     );
   },
 
-  async update(id, { nombre, precio, imagen, categoria }) {
+  async update(id, {imagen, nombre, precio, categoria }) {
     await db.query(
       'UPDATE products SET nombre = ?, precio = ?, imagen = ?, categoria = ? WHERE id = ?',
-      [nombre, precio, imagen, categoria, id]
+      [imagen, nombre, precio, categoria, id]
     );
   },
 

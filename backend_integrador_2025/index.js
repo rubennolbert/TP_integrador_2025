@@ -19,16 +19,10 @@ app.set('views', join(__dirname, 'src/views'));
 app.use(express.static(join(__dirname, 'public')));
 
 // Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: true
-}));
 
 // Routes
-app.use('/api/products', routes);
+app.use('/', routes);
 
 // Start
 const PORT = process.env.PORT || 3000;
