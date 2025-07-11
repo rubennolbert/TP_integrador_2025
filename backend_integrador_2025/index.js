@@ -16,7 +16,7 @@ app.set('views', join(__dirname, 'src/views'));
 
 
 // Static
-app.use(express.static(join(__dirname, 'public')));
+app.use(express.static(join(__dirname, 'src', 'api', 'public')));
 
 // Middleware
 app.use(bodyParser.json());

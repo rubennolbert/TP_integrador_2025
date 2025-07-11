@@ -3,14 +3,14 @@
 
 <body>
   <h1><%= title %></h1>
-  <ul>
+  <ul id="ul_dashboard">
     <% productos.forEach(p => { %>
       <li>
         Id: <%= p.id %> <br>
-        <strong><%= p.nombre %></strong><br>
+        <strong> Nombre: <%= p.nombre %></strong><br>
         Precio: $<%= p.precio %><br>
         Categoría: <%= p.categoria %><br>
-        Imagen: <%= p.imagen ? p.imagen : 'No disponible' %>
+        <img class= "img-listados" src="<%= p.imagen %>" alt="<%= p.nombre %>" style="max-width: 200px;">
       </li>
     <% }) %>
   </ul>

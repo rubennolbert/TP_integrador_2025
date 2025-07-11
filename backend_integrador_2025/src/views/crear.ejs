@@ -3,7 +3,7 @@
 
   <h2>Crear producto</h2>
 
-    <form action="/api/products" method="POST" autocomplete="off">
+    <form id= "altaProductos-form" autocomplete="off">
 
       
       <label for="imagenProd">Imagen</label>
@@ -23,6 +23,53 @@
         
       <input type="submit" value="Crear producto">
     </form>
+
+    <script>
+      const url = "http://localhost:3000/api";
+      let altaProducts_form = document.getElementById("altaProductos-form");
+
+      altaProducts_form.addEventListener("submit", async(event) => {
+
+        event.preventDefault();
+
+        let formData = new FormData(event.target);
+
+        let data = Object.fromEntries(formData.entries());
+
+      
+        if(!data.nombre || !data.imagen || !data.precio) {
+            alert("Todos los campos son obligatorios");
+            return;
+        }
+
+        try {
+            let response = await fetch(`${url}/products`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data)
+            });
+
+            if(response.ok) {
+                console.log(response);
+
+                let result = await response.json();
+                console.log(result.mensaje);
+                alert(result.mensaje);
+
+            } else {
+                let error = await response.json();
+                console.log("Error:", error.mensaje);
+            }
+
+        } catch (error){
+            console.log("Error al enviar los datos", error);
+            alert("Error al enviar la solicitud");
+        }
+
+      })
+    </script>
 
 
 <%- include("partials/footer.ejs") %>

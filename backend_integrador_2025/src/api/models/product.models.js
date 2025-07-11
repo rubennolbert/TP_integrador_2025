@@ -21,7 +21,7 @@ const ProductModel = {
   async update(id, {imagen, nombre, precio, categoria }) {
     await db.query(
       'UPDATE products SET nombre = ?, precio = ?, imagen = ?, categoria = ? WHERE id = ?',
-      [imagen, nombre, precio, categoria, id]
+      [nombre, precio, imagen, categoria, id]
     );
   },
 

@@ -1,5 +1,6 @@
 import bcrypt from 'bcrypt';
 import UserModel from '../models/user.models.js';
+import ProductModel from '../models/product.models.js'
 
 
 const AdminController = {
@@ -39,12 +40,14 @@ const AdminController = {
 
 
   async renderDashboard(req, res) {
-    if (!req.session.user) return res.redirect('/admin/login');
+    //if (!req.session.user) return res.redirect('/admin/login');
     try {
       
+      const products = await ProductModel.getAll();
+
       res.render('dashboard', {
         title: "Dashboard Admin",
-        
+        productos: products        
       });
     } catch (error) {
       console.error(error);
@@ -53,7 +56,7 @@ const AdminController = {
   },
 
   async renderConsultar(req, res) {
-    if (!req.session.user) return res.redirect('/admin/login');
+    //if (!req.session.user) return res.redirect('/admin/login');
 
     try{
 
@@ -67,7 +70,7 @@ const AdminController = {
   },
 
   async renderCrear(req, res) {
-    if (!req.session.user) return res.redirect('/admin/login');
+    //if (!req.session.user) return res.redirect('/admin/login');
 
     try{
 
@@ -81,7 +84,7 @@ const AdminController = {
   },
 
   async renderModificar(req, res) {
-    if (!req.session.user) return res.redirect('/admin/login');
+    //if (!req.session.user) return res.redirect('/admin/login');
 
     try{
 
@@ -95,7 +98,7 @@ const AdminController = {
   },
 
   async renderEliminar(req, res) {
-    if (!req.session.user) return res.redirect('/admin/login');
+    //if (!req.session.user) return res.redirect('/admin/login');
 
     try{
 

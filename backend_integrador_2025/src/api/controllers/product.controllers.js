@@ -15,7 +15,7 @@ const ProductController = {
     try {
       const producto = await ProductModel.getById(req.params.id);
       if (producto) {
-        res.json(producto);
+        res.json({ payload: producto });
       } else {
         res.status(404).json({ error: 'Producto no encontrado' });
       }
@@ -29,7 +29,7 @@ const ProductController = {
     try {
       const { imagen, nombre, precio, categoria } = req.body;
       await ProductModel.create({ imagen, nombre, precio, categoria });
-      res.json({ mensaje: 'Producto creado' });
+      res.status(200).json({ mensaje: 'Producto creado' });
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Error al crear producto' });
@@ -39,7 +39,7 @@ const ProductController = {
   async update(req, res) {
     try {
       const { imagen, nombre, precio, categoria } = req.body;
-      await ProductModel.update(req.params.id, { imagen, nombre, precio, imagen, categoria });
+      await ProductModel.update(req.params.id, { imagen, nombre, precio, categoria });
       res.json({ mensaje: 'Producto actualizado' });
     } catch (error) {
       console.error(error);

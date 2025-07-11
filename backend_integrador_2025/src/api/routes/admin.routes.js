@@ -9,14 +9,14 @@ router.get('/login', AdminController.renderLogin);
 router.post('/login', AdminController.processLogin);
 
 // Dashboard protegido
-router.get('/dashboard', isAuthenticated, AdminController.renderDashboard);
+router.get('/dashboard', AdminController.renderDashboard);
 
-router.get('/dashboard/consultar', isAuthenticated, AdminController.renderConsultar);
+router.get('/dashboard/consultar', AdminController.renderConsultar);
 
-router.get('/dashboard/crear', isAuthenticated, AdminController.renderCrear);
+router.get('/dashboard/crear', AdminController.renderCrear);
 
-router.get('/dashboard/modificar', isAuthenticated, AdminController.renderModificar);
+router.get('/dashboard/modificar', AdminController.renderModificar);
 
-router.get('/dashboard/eliminar', isAuthenticated, AdminController.renderEliminar);
+router.get('/dashboard/eliminar', AdminController.renderEliminar);
 
 export default router;

@@ -1,12 +1,12 @@
 import db from '../database/db.js';
 
 const UserModel = {
-  async findByEmail(email, Contraseña) {
+  async findByEmail(email, contraseña) {
     
     const [rows] = await db.query(
       'SELECT * FROM users WHERE email = ? AND password = ?',
 
-      [email, Contraseña]
+      [email, contraseña]
     );
 
     console.log(rows);
